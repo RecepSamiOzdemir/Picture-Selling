@@ -1,0 +1,36 @@
+﻿@model Artist
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<h1>Edit Artist</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="edit" method="POST">
+            <input type="hidden" name="Id" class="form-control" value="@Model.Id" />
+            <div class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input type="text" name="Name" class="form-control" value="@Model.Name" required/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Surname</label>
+                <input type="text" name="Surname" class="form-control" value="@Model.Surname" required/>
+            </div>       
+            <div class="form-group">
+                <label class="control-label">eMail</label>
+                <input type="text" name="Mail" class="form-control" value="@Model.Mail" required/>
+            </div> 
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><button class="btn btn-success">Back to List</button></a>
+    
+</div>

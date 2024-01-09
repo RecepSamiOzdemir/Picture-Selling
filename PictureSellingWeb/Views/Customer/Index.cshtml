@@ -1,0 +1,69 @@
+﻿@model List<Customer>
+
+@{
+    Layout = "_Layout";
+}
+<h1>Customers</h1>
+<a href="Customer/create"><Button class="btn btn-success">Create <i class="bi bi-plus-circle"></i></Button></a>
+<h1>@TempData["status"]</h1>
+@if (Model.Count != 0)
+{
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                E-Mail
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+                <tr class="table-success">
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Surname
+                </td>
+                <td>
+                    @item.Mail
+                </td>
+                <td>
+                    @item.CreatedDate
+                </td>                
+                <td>
+                        <a href="customer/edit/@item.Id"><button class="btn btn-dark">Update <i class="bi bi-pencil-square"></i></button></a>
+                        <a href="customer/delete/@item.Id"><button class="btn btn-secondary">Delete <i class="bi bi-trash"></i></button></a>
+                        <a href="customer/details/@item.Id"><button class="btn btn-info">Details <i class="bi bi-card-text"></i></button></a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@if (Model.Count == 0)
+{
+    <div class="d-flex align-items-center justify-content-center vh-30 bg-info">
+        <h1 class="display-1 fw-bold text-white">Nothing Found</h1>
+    </div>
+}

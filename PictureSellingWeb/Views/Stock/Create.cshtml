@@ -1,0 +1,34 @@
+﻿@model List<Picture>
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<h1>Create Stock</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="create" method="POST">
+            <div class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Picture</label>
+                <select class="form-select" name="PictureId" aria-label="Lock Status">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id">@item.Title</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Stock Count</label>
+                <input type="number" name="StokCount" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-warning"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><button class="btn btn-success">Back to List</button></a>
+</div>

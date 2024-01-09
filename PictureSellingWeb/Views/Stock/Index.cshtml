@@ -1,0 +1,57 @@
+﻿@model List<Stock>
+
+@{
+    Layout = "_Layout";
+}
+<h1>Stocks</h1>
+<a href="Stock/create"> <Button class="btn btn-success">Create <i class="bi bi-plus-circle"></i></Button></a>
+<h1>@TempData["status"]</h1>
+@if (Model.Count != 0)
+{
+    <table class="table" >
+        <thead class="table-dark">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Picture
+            </th>    
+            <th>
+                Stock Count
+            </th>
+            <th>
+                Actions 
+            </th>            
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+                <tr class="table-success">
+                <td>
+                    @item.PictureId
+                </td>
+                <td>
+                     @item.Picture.Title 
+                </td>
+                <td>
+                    @item.StokCount
+                </td>
+                <td>
+                        <a href="stock/edit/@item.PictureId"><button class="btn btn-dark">Update <i class="bi bi-pencil-square"></i></button></a>
+                        <a href="stock/delete/@item.Id"><button class="btn btn-secondary">Delete <i class="bi bi-trash"></i></button></a>
+                                <a href="stock/details/@item.PictureId"><button class="btn btn-info">Details <i class="bi bi-card-text"></i></button></a>
+                </td>                
+            </tr>
+        }
+        </tbody>
+    </table> 
+} 
+
+@if (Model.Count == 0)
+{
+    <div class="d-flex align-items-center justify-content-center vh-30 bg-info">
+        <h1 class="display-1 fw-bold text-white">Nothing Found</h1>
+    </div>
+}

@@ -1,0 +1,29 @@
+@model PictureSellingWeb.Models.Artist
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Artist Details</h1>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">ID</label>
+                <input type="text" name="Id" class="form-control" value="@Model.Id" disabled />
+            <label class="control-label">Name</label>
+                <input type="text" name="Name" class="form-control" value="@Model.Name" disabled />
+            <label class="control-label">Surname</label>
+                <input type="text" name="Surname" class="form-control" value="@Model.Surname" disabled />
+            <label class="control-label">E-Mail</label>
+                <input type="text" name="Mail" class="form-control" value="@Model.Mail" disabled />
+            <label class="control-label">Date</label>
+                <input type="text" name="Date" class="form-control" value="@Model.CreatedDate" disabled />
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><button class="btn btn-success">Back to List</button></a>
+</div>

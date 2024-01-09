@@ -1,0 +1,82 @@
+﻿@model List<Picture>
+
+@{
+    Layout = "_Layout";
+}
+<h1>Pictures</h1>
+<a href="Picture/create"><Button class="btn btn-success">Create <i class="bi bi-plus-circle"></i></Button></a>
+<h1>@TempData["status"]</h1>
+@if (Model.Count != 0)
+{
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Created Date
+            </th> 
+            <th>
+                Category Name
+            </th>
+            <th>
+                Locked
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+                <tr class="table-success">
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Desc
+                </td>
+
+                <td>
+                    @item.Price.ToString("F")
+                </td>
+                <td>
+                    @item.CreatedDate.ToString("d")                
+                </td>     
+                <td>
+                    @item.Category.Title     
+                </td>
+                <td>
+                    @item.Locked
+                </td>
+                <td>
+                        <a href="picture/delete/@item.Id"><button class="btn btn-dark">Delete <i class="bi bi-trash"></i></button></a>
+                        <a href="picture/edit/@item.Id"> <button class="btn btn-secondary">Update <i class="bi bi-pencil-square"></i></button></a>
+                        <a href="picture/details/@item.Id"><button class="btn btn-info">Details <i class="bi bi-card-text"></i></button></a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table> 
+} 
+
+@if (Model.Count == 0)
+{
+    <div class="d-flex align-items-center justify-content-center vh-30 bg-info">
+        <h1 class="display-1 fw-bold text-white">Nothing Found</h1>
+    </div>
+}

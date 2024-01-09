@@ -1,0 +1,37 @@
+@model PictureSellingWeb.Models.Picture
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Picture Details</h1>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">ID</label>
+                <input type="text" name="Id" class="form-control" value="@Model.Id" disabled />
+            <label class="control-label">Title</label>
+            <input type="text" name="Title" class="form-control" value="@Model.Title" disabled />
+            <label class="control-label">Description</label>
+            <input type="text" name="Desc" class="form-control" value="@Model.Desc" disabled />
+            <label class="control-label">Price</label>
+            <input type="number" name="Price" class="form-control" value="@Model.Price.ToString("0")" disabled />
+            <label class="control-label">Date</label>
+            <input type="text" name="Date" class="form-control" value="@Model.CreatedDate" disabled />
+            <label class="control-label">Category</label>
+            <input type="text" name="Category" class="form-control" value="@Model.Category.Title" disabled />
+            <label class="control-label">Lock</label>
+            
+            <select class="form-select" name="Locked" value="@Model.Locked" aria-label="Lock Status" disabled>
+                <option value="false">False</option>
+                <option value="true">True</option>
+            </select>
+  
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><button class="btn btn-success">Back to List</button></a>
+</div>
